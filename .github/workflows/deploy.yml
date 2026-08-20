@@ -12,8 +12,8 @@ jobs:
     environment: testing
     env:
       MONGODB_CLUSTER_ADDRESS: chatbothackathon.mrho6.mongodb.net
-      MONGODB_USERNAME: anirbans
-      MONGODB_PASSWORD: xTuOwRuxariY6Lsw
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets. MONGODB_PASSWORD }}
       PORT: 3000
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +33,7 @@ jobs:
       - name: Output information
         run: |
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_PASSWORD }}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
